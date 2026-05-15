@@ -2,23 +2,26 @@
 <h4 class="text-danger">{{anuncio}}</h4>
 
 <div class="card" style="width: 18rem;">
-  <img [src]="foto">
+  <img [src]="foto"><!--[src]-properties-->
   <div class="card-body">
     <h5 class="card-title">
-        {{nomeProduto}}
-        <!--
+      {{ nomeProduto | uppercase }}
+      <!--
         <span *ngIf="promocao; else elseBlock" class="badge text-bg-success">Promoção</span>
         <ng-template #elseBlock>
             <span class="badge text-bg-primary">Aproveite</span>
         </ng-template>
         -->
-        @if(promocao){
-              <span class="badge text-bg-success">Promoção</span>
-        }@else {
-            <span class="badge text-bg-primary">Aproveite</span>
-        }
+      @if(promocao){
+      <span class="badge text-bg-success">Promoção</span>
+      }@else {
+      <span class="badge text-bg-primary">Aproveite</span>
+      }
     </h5>
-    <p class="card-text">Identificação: {{idProduto}}</p>
-    <a href="#" class="btn btn-primary">R$ {{precoProduto}}</a>
+    <p class="card-text">Identificação: {{ idProduto | number:'2.0-0' }}<!--{{nome}}-identação-->
+    Validação: {{dataValidade | date : 'dd/MM/yyyy'}} 
+      </p>
+    <a href="#" class="btn btn-primary" style="margin-left: 175px;"> {{ precoProduto | currency:'BRL'}}</a>
+    
   </div>
 </div>

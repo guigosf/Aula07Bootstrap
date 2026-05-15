@@ -8,6 +8,10 @@ import { Footer } from './template/footer/footer';
 import { Home } from './components/home/home';
 import { ListarProdutos } from './components/produtos/listar-produtos/listar-produtos';
 import { CadastrarProduto } from './components/produtos/cadastrar-produto/cadastrar-produto';
+import { LOCALE_ID } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localePt);
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { CadastrarProduto } from './components/produtos/cadastrar-produto/cadast
     AppRoutingModule
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    { provide: LOCALE_ID, useValue: 'pt-BR'},
   ],
   bootstrap: [App]
 })
