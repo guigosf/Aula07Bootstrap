@@ -1,27 +1,36 @@
 <h1>Seja bem vindo ao curso de Angular</h1>
+
 <h4 class="text-danger">{{anuncio}}</h4>
 
-<div class="card" style="width: 18rem;">
-  <img [src]="foto"><!--[src]-properties-->
-  <div class="card-body">
-    <h5 class="card-title">
-      {{ nomeProduto | uppercase }}
-      <!--
-        <span *ngIf="promocao; else elseBlock" class="badge text-bg-success">Promoção</span>
-        <ng-template #elseBlock>
-            <span class="badge text-bg-primary">Aproveite</span>
-        </ng-template>
-        -->
-      @if(promocao){
-      <span class="badge text-bg-success">Promoção</span>
-      }@else {
-      <span class="badge text-bg-primary">Aproveite</span>
-      }
-    </h5>
-    <p class="card-text">Identificação: {{ idProduto | number:'2.0-0' }}<!--{{nome}}-identação-->
-    Validação: {{dataValidade | date : 'dd/MM/yyyy'}}
-      </p>
-    <a href="#" class="btn btn-primary" style="margin-left: 175px;"> {{ precoProduto | currency:'BRL'}}</a>
-    
-  </div>
+<div class="row">
+    <div class="col">
+        <app-card-produto 
+            [foto]="foto"
+            [nomeProduto]="nomeProduto"
+            [promocao]="promocao"
+            [idProduto]="idProduto"
+            [dataValidade]="dataValidade"
+            [precoProduto]="precoProduto"
+        ></app-card-produto>
+    </div>
+    <div class="col">
+       <app-card-produto
+          foto="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1JGC6KaN6gDb8BiWdzvZICPbWUfiEmsHrbQ&s"
+          nomeProduto="Viagem a natureza"
+          [promocao]="true"
+          [idProduto]="15"
+          dataValidade="2024-12-31"
+          [precoProduto]="1200.00"
+        ></app-card-produto>
+    </div>
+        <div class="col">
+       <app-card-produto
+          foto="https://static0.cbrimages.com/wordpress/wp-content/uploads/2025/10/ca4acc8e-4313-4cfd-8dde-f9f1339a8428-2.JPEG?w=1600&h=900&fit=crop"
+          nomeProduto="Bakugou eu estou aqui!"
+          [promocao]="false"
+          [idProduto]="16"
+          dataValidade="2026-05-28"
+          [precoProduto]="12000.00"
+        ></app-card-produto>
+    </div>
 </div>
